@@ -44,7 +44,7 @@ def insert_tweets():
             # But wait -- we don't want duplicates! So lets check if it exists in the database first. First, lets get the ID of the tweet.
             tid = long(tweet.id)
             # Now, lets write some SQL.
-            c.execute('SELECT * FROM tweets WHERE id=?', (tid,))
+            c.execute('SELECT * FROM tweets WHERE tweet_id=?', (tid,))
             # The logic here is a little backwards. It says if you get something when you execute our SQL, that means it already exists, so continue on. If you DON'T get something, lets insert some tweets.
             if c.fetchone() != None:
                 continue
